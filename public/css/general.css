@@ -93,6 +93,7 @@ body {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   .bulk-actions button {
@@ -129,3 +130,72 @@ body {
     color: #fff;
     border-color: #2563eb;
   }
+  .table-container {
+    overflow-x: auto;
+}
+
+
+@media (max-width: 768px) {
+  .dashboard {
+      padding: 10px;
+  }
+
+  .user-info img {
+      width: 40px;
+      height: 40px;
+  }
+
+  .search-bar input {
+      width: 100%;
+  }
+
+  table {
+      font-size: 12px;
+  }
+
+  th, td {
+      padding: 8px;
+  }
+
+  .bulk-actions {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .pagination {
+      flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .user-info {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .user-info img {
+      margin-bottom: 8px;
+  }
+
+  table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+
+  .bulk-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+  }
+
+  .pagination {
+      flex-direction: column;
+      align-items: center;
+  }
+}

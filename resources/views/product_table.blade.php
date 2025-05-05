@@ -4,27 +4,30 @@
   <meta charset="UTF-8">
   <title>Product Dashboard</title>
   <link rel="stylesheet" href="{{ asset('css/general.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
   
 </head>
 <body>
 
 <div class="dashboard">
-  <!-- Header -->
+  
   <div class="header">
     <div class="user-info">
-      <img src="{{ asset('images/Picture1.png') }}" alt="User Image">
-      <h2>Welcome, <strong>Arman</strong></h2>
+      <img src="{{ $user['image'] }}" alt="User Image">
+      <h2>Welcome, <strong>{{$user['name']}}</strong></h2>
     </div>
     <div class="search-bar">
       <input type="text" placeholder="Search products...">
     </div>
   </div>
 
- 
+  <form action="{{ route('products.bulk-action') }}" method="POST">
+  @csrf
+  <div class="table-container">
   <table>
     <thead>
       <tr>
-        <th><input type="checkbox" class="checkbox"></th>
+        <th><input type="checkbox" class="select-all"></th>
         <th>Image</th>
         <th>SKU</th>
         <th>Product</th>
@@ -40,46 +43,42 @@
       </tr>
     </thead>
     <tbody>
+    @foreach ($products as $index => $product)
       <tr>
-        <td><input type="checkbox" class="checkbox"></td>
-        <td><div class="image-cell">Image</div></td>
-        <td>FL-00421</td>
-        <td>Product 1</td>
-        <td>Brand A</td>
-        <td>Category A</td>
-        <td>USA</td>
-        <td>kg</td>
-        <td>10</td>
-        <td>$12.00</td>
-        <td>$15.00</td>
-        <td>120</td>
-        <td>Type A</td>
-      </tr>
+     
+<tr>
+<td><input type="checkbox" name="selected[]" value="{{ $index }}"></td>
+  <td><div class="image-cell">Image</div></td>
+  <td>{{ $product['sku'] }}</td>
+  <td>{{ $product['product'] }}</td>
+  <td>{{ $product['brand'] }}</td>
+  <td>{{ $product['category'] }}</td>
+  <td>{{ $product['region'] }}</td>
+  <td>{{ $product['uom'] }}</td>
+  <td>{{ $product['qty'] }}</td>
+  <td>${{ number_format($product['cost'], 2) }}</td>
+  <td>${{ number_format($product['rrp'], 2) }}</td>
+  <td>{{ $product['stock'] }}</td>
+  <td>{{ $product['type'] }}</td>
+</tr>
 
-      <tr>
-        <td><input type="checkbox" class="checkbox"></td>
-        <td><div class="image-cell">Image</div></td>
-        <td>FL-00422</td>
-        <td>Product 2</td>
-        <td>Brand B</td>
-        <td>Category B</td>
-        <td>Canada</td>
-        <td>ltr</td>
-        <td>20</td>
-        <td>$18.00</td>
-        <td>$22.00</td>
-        <td>80</td>
-        <td>Type B</td>
       </tr>
+      @endforeach
+
+      
     </tbody>
   </table>
+</div>
+
+
+  
 
   
   <div class="bulk-actions">
-    <button>Edit</button>
-    <button class="delete">Delete</button>
+  <button type="submit" name="action" value="edit">Edit</button>
+  <button type="submit" name="action" value="delete" class="delete">Delete</button>
   </div>
-
+</form>
   
   <div class="pagination">
     <button>&laquo;</button>

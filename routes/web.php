@@ -20,7 +20,5 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/products', function()
-{
-    return view('product_table');
-});
+Route::get('/products',[ProductController::class,'Product']);
+Route::post('/products', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
