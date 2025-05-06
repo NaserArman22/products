@@ -20,5 +20,7 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/products',[ProductController::class,'Product']);
+Route::get('/products',[ProductController::class,'Product'])->name('get.product');
 Route::post('/products', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
+Route::post('/products/update-dummy', [ProductController::class, 'updateProduct'])->name('products.updateProduct');
+
