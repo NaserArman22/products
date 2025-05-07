@@ -1,0 +1,144 @@
+body {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f1f5f9;
+    margin: 0;
+    padding: 0;
+   
+  }
+
+  .form-container {
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f2937;
+  }
+
+  .section {
+    margin-bottom: 30px;
+  }
+
+  .section h3 {
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+    color: #2563eb;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-group .field {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group .field label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #374151;
+  }
+
+  .form-group .field input,
+  .form-group .field textarea,
+  .form-group .field select {
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .form-group .field textarea {
+    resize: vertical;
+  }
+
+  .image-upload input[type="file"] {
+    border: none;
+    padding-left: 0;
+  }
+
+  button {
+    background-color: #2563eb;
+    color: #1c1a1a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  
+
+.form-container {
+width: 100%;
+max-width: 900px;
+margin: auto;
+padding: 20px;
+box-sizing: border-box;
+}
+
+
+.form-group {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+}
+
+.form-group .field {
+flex: 1 1 45%;
+display: flex;
+flex-direction: column;
+}
+
+
+@media (max-width: 768px) {
+.form-group .field {
+  flex: 1 1 100%;
+}
+
+.form-container {
+  padding: 15px;
+}
+
+button {
+  font-size: 15px;
+}
+}
+
+
+@media (max-width: 480px) {
+h2 {
+  font-size: 20px;
+}
+
+.section h3 {
+  font-size: 16px;
+}
+
+input, textarea, select {
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  font-size: 14px;
+}
+}
+
+  @media (max-width: 600px) {
+    .form-group .field {
+      flex: 1 1 100%;
+    }
+  }
