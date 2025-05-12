@@ -47,7 +47,7 @@ class PostProductRequest extends FormRequest
             
             
             
-            'product_image' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048'
+            'image_path' => 'required|image|mimes:jpeg,png,jpg,svg|max:2048'
         ];
     }
 }

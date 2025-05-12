@@ -14,16 +14,18 @@
 <div class="dashboard">
   
   <div class="header">
-    <div class="user-info">
+   {{-- <div class="user-info">
       <img src="{{ $user['image'] }}" alt="User Image">
       <h2>Welcome, <strong>{{$user['name']}}</strong></h2>
-    </div>
+    </div>--}}
     <div class="search-bar">
       <input type="text" placeholder="Search products...">
+       <li><a  class="main-nav-link" href="{{ route('products.addProduct') }}">Add Product</a></li>
     </div>
+    
   </div>
 
-  <form action="{{ route('products.bulk-action') }}" method="POST">
+  <form action="" method="POST">
   @csrf
   <div class="table-container">
   <table>
@@ -52,15 +54,15 @@
 <td><input type="checkbox" name="selected[]" value="{{ $index }}"></td>
   <td><div class="image-cell">Image</div></td>
   <td>{{ $product['sku'] }}</td>
-  <td>{{ $product['product'] }}</td>
+  <td>{{ $product['name'] }}</td>
   <td>{{ $product['brand'] }}</td>
   <td>{{ $product['category'] }}</td>
   <td>{{ $product['region'] }}</td>
   <td>{{ $product['uom'] }}</td>
-  <td>{{ $product['qty'] }}</td>
-  <td>${{ number_format($product['cost'], 2) }}</td>
+  <td>{{ $product['unit_quantity'] }}</td>
+  <td>${{ number_format($product['cost_price'], 2) }}</td>
   <td>${{ number_format($product['rrp'], 2) }}</td>
-  <td>{{ $product['stock'] }}</td>
+  <td>{{ $product['stock_quantity'] }}</td>
   <td>{{ $product['type'] }}</td>
 </tr>
 
@@ -90,6 +92,7 @@
     <button>&raquo;</button>
   </div>
 </div>
+
 
 </body>
 </html>

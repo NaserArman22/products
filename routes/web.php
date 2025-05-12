@@ -21,12 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/addProduct', function () {
-    return view('add_Product');
-});
-Route::get('/products',[ProductController::class,'Product'])->name('get.product');
-Route::post('/products', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
-//Route::get('/products',[ProductController::class,'getProduct'])->name('add.product');
 
-Route::post('/addProduct/store', [ProductController::class, 'postProduct'])->name('products.updateProduct');
+Route::get('/products',[ProductController::class,'product'])->name('get.product');
+//Route::post('/products', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
+//Route::get('/products',[ProductController::class,'getProduct'])->name('add.product');
+Route::get('/addProduct', [ProductController::class, 'getProduct'])->name('products.addProduct');
+
+Route::post('/addProduct', [ProductController::class, 'store'])->name('products.updateProduct');
 
