@@ -17,7 +17,7 @@
   <div class="form-container">
     <h2>Add New Product</h2>
 
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('products.updateProduct') }}" method="POST" enctype="multipart/form-data">
       @csrf
 
    
@@ -26,7 +26,7 @@
         <div class="form-group">
           <div class="field">
             <label for="product">Product Name</label>
-            <input type="text" id="product" name="product" required>
+            <input type="text" id="product" name="name" required>
           </div>
           <div class="field">
             <label for="type">Type</label>
@@ -49,7 +49,7 @@
           </div>
           <div class="field">
             <label for="stock">Stock Quantity</label>
-            <input type="number" id="stock" name="stock" required>
+            <input type="number" id="stock" name="stock_quantity" required>
           </div>
         </div>
       </div>
@@ -97,6 +97,10 @@
             <input type="text" id="unit_quantity" name="unit_quantity">
           </div>
           <div class="field">
+            <label for="uom">UOM</label>
+            <input type="text" id="uom" name="uom">
+          </div>
+          <div class="field">
             <label for="package_type">Package Type</label>
             <input type="text" id="package_type" name="package_type">
           </div>
@@ -109,7 +113,7 @@
         <div class="form-group">
           <div class="field" style="flex: 1 1 100%;">
             <label for="product_image">Upload Image</label>
-            <input type="file" id="product_image" name="product_image">
+            <input type="file" id="product_image" name="image">
           </div>
         </div>
       </div>

@@ -26,5 +26,7 @@ Route::get('/addProduct', function () {
 });
 Route::get('/products',[ProductController::class,'Product'])->name('get.product');
 Route::post('/products', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
-Route::post('/products/update-dummy', [ProductController::class, 'updateProduct'])->name('products.updateProduct');
+//Route::get('/products',[ProductController::class,'getProduct'])->name('add.product');
+
+Route::post('/addProduct/store', [ProductController::class, 'postProduct'])->name('products.updateProduct');
 
