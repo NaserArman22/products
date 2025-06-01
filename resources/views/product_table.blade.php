@@ -20,7 +20,7 @@
     </div>--}}
     <div class="search-bar">
       <input type="text" placeholder="Search products...">
-       <li><a  class="main-nav-link" href="{{ route('products.addProduct') }}">Add Product</a></li>
+       <li><a  class="main-nav-link" href="{{ route('products.addProduct') }}">Save new Product</a></li>
     </div>
     
   </div>
